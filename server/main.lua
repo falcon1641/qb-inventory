@@ -1568,12 +1568,11 @@ QBCore.Functions.CreateUseableItem("snowball", function(source, item)
     end
 end)
 
-QBCore.Functions.CreateUseableItem("driver_license", function(source, item)
-	local PlayerPed = GetPlayerPed(source)
-	local PlayerCoords = GetEntityCoords(PlayerPed)
+--[[QBCore.Functions.CreateUseableItem("driver_license", function(source, item)
 	for k, v in pairs(QBCore.Functions.GetPlayers()) do
+		local PlayerPed = GetPlayerPed(source)
 		local TargetPed = GetPlayerPed(v)
-		local dist = #(PlayerCoords - GetEntityCoords(TargetPed))
+		local dist = #(GetEntityCoords(PlayerPed) - GetEntityCoords(TargetPed))
 		if dist < 3.0 then
 			TriggerClientEvent('chat:addMessage', v,  {
 					template = '<div class="chat-message advert"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>First Name:</strong> {1} <br><strong>Last Name:</strong> {2} <br><strong>Birth Date:</strong> {3} <br><strong>Licenses:</strong> {4}</div></div>',
@@ -1588,14 +1587,13 @@ QBCore.Functions.CreateUseableItem("driver_license", function(source, item)
 			)
 		end
 	end
-end)
+end)]]
 
-QBCore.Functions.CreateUseableItem("id_card", function(source, item)
-	local PlayerPed = GetPlayerPed(source)
-	local PlayerCoords = GetEntityCoords(PlayerPed)
+--[[QBCore.Functions.CreateUseableItem("id_card", function(source, item)
 	for k, v in pairs(QBCore.Functions.GetPlayers()) do
+		local PlayerPed = GetPlayerPed(source)
 		local TargetPed = GetPlayerPed(v)
-		local dist = #(PlayerCoords - GetEntityCoords(TargetPed))
+		local dist = #(GetEntityCoords(PlayerPed) - GetEntityCoords(TargetPed))
 		if dist < 3.0 then
 			local gender = "Man"
 			if item.info.gender == 1 then
@@ -1611,6 +1609,111 @@ QBCore.Functions.CreateUseableItem("id_card", function(source, item)
 						item.info.birthdate,
 						gender,
 						item.info.nationality
+					}
+				}
+			)
+		end
+	end
+end)]]
+
+QBCore.Functions.CreateUseableItem("commercial_license", function(source, item)
+	for k, v in pairs(QBCore.Functions.GetPlayers()) do
+		local PlayerPed = GetPlayerPed(source)
+		local TargetPed = GetPlayerPed(v)
+		local dist = #(GetEntityCoords(PlayerPed) - GetEntityCoords(TargetPed))
+		if dist < 3.0 then
+			TriggerClientEvent('chat:addMessage', v,  {
+					template = '<div class="chat-message advert"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>First Name:</strong> {1} <br><strong>Last Name:</strong> {2} <br><strong>Birth Date:</strong> {3} <br><strong>Licenses:</strong> {4}</div></div>',
+					args = {
+						"Commercial Drivers License",
+						item.info.firstname,
+						item.info.lastname,
+						item.info.birthdate,
+						item.info.type
+					}
+				}
+			)
+		end
+	end
+end)
+
+QBCore.Functions.CreateUseableItem("fishinglicense", function(source, item)
+	for k, v in pairs(QBCore.Functions.GetPlayers()) do
+		local PlayerPed = GetPlayerPed(source)
+		local TargetPed = GetPlayerPed(v)
+		local dist = #(GetEntityCoords(PlayerPed) - GetEntityCoords(TargetPed))
+		if dist < 3.0 then
+			TriggerClientEvent('chat:addMessage', v,  {
+					template = '<div class="chat-message advert"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>First Name:</strong> {1} <br><strong>Last Name:</strong> {2} <br><strong>Birth Date:</strong> {3} <br><strong>Licenses:</strong> {4}</div></div>',
+					args = {
+						"Fishing License",
+						item.info.firstname,
+						item.info.lastname,
+						item.info.birthdate,
+						item.info.type
+					}
+				}
+			)
+		end
+	end
+end)
+
+QBCore.Functions.CreateUseableItem("huntinglicense", function(source, item)
+	for k, v in pairs(QBCore.Functions.GetPlayers()) do
+		local PlayerPed = GetPlayerPed(source)
+		local TargetPed = GetPlayerPed(v)
+		local dist = #(GetEntityCoords(PlayerPed) - GetEntityCoords(TargetPed))
+		if dist < 3.0 then
+			TriggerClientEvent('chat:addMessage', v,  {
+					template = '<div class="chat-message advert"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>First Name:</strong> {1} <br><strong>Last Name:</strong> {2} <br><strong>Birth Date:</strong> {3} <br><strong>Licenses:</strong> {4}</div></div>',
+					args = {
+						"Hunting License",
+						item.info.firstname,
+						item.info.lastname,
+						item.info.birthdate,
+						item.info.type
+					}
+				}
+			)
+		end
+	end
+end)
+
+QBCore.Functions.CreateUseableItem("bike_license", function(source, item)
+	for k, v in pairs(QBCore.Functions.GetPlayers()) do
+		local PlayerPed = GetPlayerPed(source)
+		local TargetPed = GetPlayerPed(v)
+		local dist = #(GetEntityCoords(PlayerPed) - GetEntityCoords(TargetPed))
+		if dist < 3.0 then
+			TriggerClientEvent('chat:addMessage', v,  {
+					template = '<div class="chat-message advert"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>First Name:</strong> {1} <br><strong>Last Name:</strong> {2} <br><strong>Birth Date:</strong> {3} <br><strong>Licenses:</strong> {4}</div></div>',
+					args = {
+						"Class M Motorcycle License",
+						item.info.firstname,
+						item.info.lastname,
+						item.info.birthdate,
+						item.info.type
+					}
+				}
+			)
+		end
+	end
+end)
+
+QBCore.Functions.CreateUseableItem("pilot_license", function(source, item)
+	for k, v in pairs(QBCore.Functions.GetPlayers()) do
+		local PlayerPed = GetPlayerPed(source)
+		local TargetPed = GetPlayerPed(v)
+		local dist = #(GetEntityCoords(PlayerPed) - GetEntityCoords(TargetPed))
+		if dist < 3.0 then
+			TriggerClientEvent('chat:addMessage', v,  {
+					template = '<div class="chat-message advert"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>First Name:</strong> {1} <br><strong>Last Name:</strong> {2} <br><strong>Birth Date:</strong> {3} <br><strong>Licenses:</strong> {4}</div></div>',
+					args = {
+						"Private Pilots License",
+						item.info.firstname,
+						item.info.lastname,
+						item.info.birthdate,
+						item.info.type
 					}
 				}
 			)
